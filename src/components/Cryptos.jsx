@@ -1,27 +1,35 @@
 import { Link } from "react-router-dom"
 import CryptoCard from "./CryptoCard"
 
-function Cryptos({ cripto }) {
+function Cryptos({ cripto, criptoSearch, setCriptoSearch }) {
+
+    const cryptoFiltered = cripto.filter((c) => {
+        const search = criptoSearch.toLowerCase();
+        return c.name.toLowerCase().includes(search) || c.symbol.toLowerCase().includes(search)
+    })
+
+    if (cripto.length === 0) {
+        return <div className="loading">Loading...</div>;
+    }
 
     return (
         <div className="container-home">
-
             <div className='columns'>
-                <p>Name</p>
+                <div>
+                    <p>Name</p>
+                </div>
                 <p>Price</p>
                 <p>24h</p>
-                <p>Volume</p>
+                <p className="ocultar">Volume</p>
             </div>
 
             <div className="crypto-container">
-                {cripto.map((c, i) => (
-                    <Link key={i} to={`/${c.id}`}>
-                       <CryptoCard c={c}/>
+                {cryptoFiltered.map((c, i) => (
+                    <Link key={i} to={`/${c.nameid}/${c.id}`}>
+                        <CryptoCard c={c} setCriptoSearch={setCriptoSearch}/>
                     </Link>
                 ))}
             </div>
-
-
         </div>
     )
 }

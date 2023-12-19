@@ -10,6 +10,7 @@ import axios from 'axios'
 function App() {
 
   const [cripto, setCripto] = useState([])
+  const [criptoSearch, setCriptoSearch] = useState('')
 
   useEffect(() => {
     const getAllData = async () => {
@@ -26,10 +27,10 @@ function App() {
 
   return (
     <>
-      <Header />
-      <Routes>
-        <Route path='/' element={<Cryptos cripto={cripto}/>}/>
-        <Route path='/:cardId/' element={<CardDetails />}></Route>
+      <Header criptoSearch={criptoSearch} setCriptoSearch={setCriptoSearch}/>
+      <Routes>  
+        <Route path='/' element={<Cryptos cripto={cripto} criptoSearch={criptoSearch} setCriptoSearch={setCriptoSearch}/>}/>
+        <Route path='/:cardName/:cardId/' element={<CardDetails />}></Route>
       </Routes>
     </>
   )

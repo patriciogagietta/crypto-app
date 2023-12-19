@@ -5,7 +5,6 @@ import axios from "axios";
 function CardDetails () {
 
     const [crip, setCript] = useState(null)
-
     const { cardId } = useParams()
 
     useEffect(() => {
@@ -26,9 +25,7 @@ function CardDetails () {
     }
 
     const color24h = crip.percent_change_24h < 0 ? "volumeNegative" : 'volumePositive'
-
     const color1h = crip.percent_change_1h < 0 ? "volumeNegative" : 'volumePositive'
-
     const color7d = crip.percent_change_7d < 0 ? "volumeNegative" : 'volumePositive'
 
     return (

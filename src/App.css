@@ -1,5 +1,5 @@
 .container-home {
-    max-width: 1400px;
+    max-width: 1200px;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
@@ -36,13 +36,18 @@
     box-shadow: 5px 5px 5px #0d0e0f;
     border-radius: 12px;
     padding: .7rem 1rem;
-    transition: all 0.5s;
+    transition: all 0.3s;
     color: white;
+    opacity: 0;
+    animation: fadeIn 0.4s ease-in-out forwards;
 }
 
+.crypto-card > p, .columns > p {
+    justify-self: flex-end;
+}
 
 .crypto-card:hover {
-    transform: scale(1.02);
+    background-color: #1a1919;
 }
 
 .img-container {
@@ -154,6 +159,17 @@ th {
     padding: .6rem 0;
 }
 
+.container-header {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 .header h1 {
     transition: all 0.3s;
 }
@@ -161,4 +177,107 @@ th {
 .header h1:hover {
     color: black;
     transform: scale(1.03);
+}
+
+.search-input {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 250px;
+    font-size: 16px;
+    outline: none;
+}
+
+.search-input:focus {
+    border-color: #787b7e;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+@media (max-width: 1250px) {
+    .container-home {
+        max-width: 800px;
+    }
+
+    .container-header {
+        max-width: 700px;
+    }
+
+    .crypto-card > p, .columns > p {
+        justify-self: center;
+    }
+}
+
+@media (max-width: 860px) {
+    .container-home {
+        max-width: 550px;
+    }
+
+    .container-header {
+        max-width: 400px;
+    }
+
+    .header {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .ocultar {
+        display: none;
+    }
+
+    .crypto-card, .columns {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .container-all-card-detail {
+        margin: 0 10px;
+    }
+}
+
+@media (max-width: 578px) {
+
+    p {
+        font-size: 14px;
+    }
+
+    .container-home {
+        margin: 0 15px;
+    }
+
+    .container-info-secundaria {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .conteiner-h2-card > h2  {
+        font-size: 1.5rem;
+    }
+
+    .container-img-symbol > div > p {
+        font-size: 1.3rem;
+    }
+
+    .container-table {
+        padding: 10px;
+    }
+}
+
+@media (max-width: 400px) {
+    .search-input {
+        width: 200px;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
