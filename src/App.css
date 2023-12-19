@@ -193,6 +193,22 @@ th {
     box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
 }
 
+.container-error {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.back-to-home {
+    transition: color 0.3s;
+}
+
+.back-to-home:hover {
+    color: black;
+}
+
 @media (max-width: 1250px) {
     .container-home {
         max-width: 800px;

@@ -1,11 +1,16 @@
-function Error404 () {
-    return (
-        <>
-            <div className="Error404">
-                <h2> Error 404 </h2>
-            </div>  
-        </>
-    )
-}
+import { Link } from "react-router-dom";
 
-export default Error404
+const Error404 = () => {
+    return (
+        <div className="container-error">
+            <div>
+                <p>La ruta que buscas no existe</p>
+            </div>
+            <Link to='/' className="back-to-home">
+                Volver a Inicio
+            </Link>
+        </div>
+    );
+};
+
+export default Error404;
